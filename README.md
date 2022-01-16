@@ -4,7 +4,7 @@
 ![pyqt5](https://user-images.githubusercontent.com/24581566/149662314-43ef2e7c-5714-4b88-bed7-a9f6d3a5e50b.png)
 
 ## Hardware
-- Raspberry Pi 4 Model B 4GB RAM https://www.raspberrypi.com/products/raspberry-pi-4-model-b/
+- Raspberry Pi 4 Model B 4GB RAM https://www.raspberrypi.com/products/raspberry-pi-4-model-b/ or Raspberry Pi 3A
 - Waveshare 7" HDMI LCD (C) Capacitive Touchscreen 1024 x 600 https://www.waveshare.com/7inch-hdmi-lcd-c.htm
 - HDMI to HDMI micro cable
 - USB A to USB micro B cable
@@ -15,8 +15,11 @@
 ## Software
 
 - Setup of right-click functionality for Waveshare 7" touch screen https://www.inemov.com/post/set-rightclick-rpi-waveshare7-touchscreen
+(see prepared files in code\set-up-right-click)
 
-- Install python and PyQt5 on Raspberry Pi
+- Check documentation 'Virtual_keyboard_setup.pdf' to set up virtual keyboard.
+
+- Install python and PyQt5 on Raspberry Pi https://www.inemov.com/post/install-and-troubleshoot-pyqt5-on-raspberry-pi
 ```
 sudo apt install python3
 sudo apt-get install python3-venv
@@ -27,9 +30,9 @@ NOTE: multiple SIP installations can cause errors when importing PyQt5 in python
 1. take SD card image backup
 NOTE: not all SIP's are compatible with all PyQt5. Read installation documentation to check compatibility.
 
-2. download required PyQt5 source, for example: PyQt5_gpl-5.12.3.tar.gz from https://riverbankcomputing.com/software/pyqt/download5
+2. download required PyQt5 source, for example: PyQt5_gpl-5.12.3.tar.gz from https://riverbankcomputing.com/software/pyqt/download5 (see also in code\install-pyqt5)
 
-3. download required SIP source, for example: sip-4.19.14.tar.gz from https://riverbankcomputing.com/software/sip/download
+3. download required SIP source, for example: sip-4.19.14.tar.gz from https://riverbankcomputing.com/software/sip/download (see also in code\install-pyqt5)
 
 4. place the archives in convenient directory, for example: /home/pi
 
@@ -79,8 +82,14 @@ sudo nano /etc/xdg/qt5ct/qt5ct.conf
 replace ```style=gtk2``` with ```style=gtk3```
 ctrl+x y ENTER
 
-https://www.inemov.com/post/install-and-troubleshoot-pyqt5-on-raspberry-pi
 
-
-
-Once all is installed, put all .py .xml .csv files from repository root to Raspberry PI folder and set up script execution on start-up (see RPi-autostart folder).
+- Configure script and autostart:
+Take all .py .xml .csv files from repository code folder to Raspberry PI \home\pi\pan-tilt-control
+In terminal:
+```
+crontab -e
+```
+add at the end
+```
+@reboot DISPLAY=:0 /home/pi/pan-tilt-control/astart.sh >> /home/pi/pan-tilt-control/reboot.log 2>&1
+```
