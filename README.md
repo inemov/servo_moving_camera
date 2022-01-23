@@ -4,7 +4,7 @@
 ![pyqt5](https://user-images.githubusercontent.com/24581566/149662314-43ef2e7c-5714-4b88-bed7-a9f6d3a5e50b.png)
 
 ## Hardware
-- Raspberry Pi 4 Model B 4GB RAM https://www.raspberrypi.com/products/raspberry-pi-4-model-b/ or Raspberry Pi 3A
+- Raspberry Pi 4 Model B 4GB RAM https://www.raspberrypi.com/products/raspberry-pi-4-model-b/ or Raspberry Pi 3 A+ https://www.raspberrypi.com/products/raspberry-pi-3-model-a-plus/
 - Waveshare 7" HDMI LCD (C) Capacitive Touchscreen 1024 x 600 https://www.waveshare.com/7inch-hdmi-lcd-c.htm
 - HDMI to HDMI micro cable
 - USB A to USB micro B cable
